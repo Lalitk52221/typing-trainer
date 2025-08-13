@@ -1,103 +1,64 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Link from "next/link";
+
+export default function Page() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 text-slate-100">
+      <div className="mx-auto max-w-5xl px-4 py-12">
+        <header>
+          <h1 className="text-4xl font-bold tracking-tight">Typing Trainer <span className="text-sky-400">Pro</span></h1>
+          <p className="mt-2 text-slate-400 max-w-2xl">
+            Practice in <b>Prompted</b>, <b>Words</b>, or <b>Freestyle</b> mode. Choose difficulty, set a timer (2/5/10/15 min),
+            toggle <b>sound feedback</b>, switch <b>themes</b>, and review a <b>per-key heatmap</b> after each session. Your best scores
+            and preferences are saved locally.
+          </p>
+        </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <section className="mt-8 grid gap-6 md:grid-cols-3">
+          <Card
+            title="Prompted"
+            body="Type the paragraph exactly as shown. Tracks accuracy and net WPM."
+            href="/test?mode=prompted"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <Card
+            title="Words Mode"
+            body="Type a rolling stream of words (Easy/Medium/Hard). Great for rhythm and speed."
+            href="/test?mode=words"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <Card
+            title="Freestyle"
+            body="Type anything you want. Perfect for eyes-off drills and raw speed."
+            href="/test?mode=freestyle"
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold">What makes it different?</h2>
+          <ul className="mt-3 list-disc pl-6 text-slate-300 space-y-1">
+            <li>Clean UI with live stats, pause/resume, and reset shortcuts.</li>
+            <li>Sound feedback: key click + error beep with a mute toggle.</li>
+            <li>Difficulty presets (Easy/Medium/Hard) and <b>Custom text upload</b>.</li>
+            <li>Per-key heatmap shows which keys need more practice.</li>
+            <li>Theme switcher with accent colors and LocalStorage persistence.</li>
+          </ul>
+        </section>
+
+        <footer className="mt-14 text-xs text-slate-500">Built with Next.js + Tailwind + TypeScript. Happy typing! ⌨️</footer>
+      </div>
+    </main>
+  );
+}
+
+function Card({ title, body, href }: { title: string; body: string; href: string }) {
+  return (
+    <Link
+      href={href}
+      className="group rounded-2xl border border-slate-800 bg-slate-900 p-5 hover:bg-slate-800 transition shadow-sm"
+    >
+      <h3 className="text-lg font-semibold">{title}</h3>
+      <p className="text-slate-400 mt-1">{body}</p>
+      <div className="mt-4 text-sky-400 group-hover:translate-x-1 transition">Start →</div>
+    </Link>
   );
 }
