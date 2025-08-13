@@ -13,7 +13,6 @@ export type Mode = "prompted" | "freestyle" | "words";
 export type Difficulty = "easy" | "medium" | "hard" | "custom";
 export type Duration = 120 | 300 | 600 | 900;
 
-// ...existing code...
 
 function formatTime(s: number) {
   const m = Math.floor(s / 60);
@@ -26,7 +25,9 @@ function computeGrossWPM(chars: number, minutes: number) {
   return Math.round((chars / 5) / minutes);
 }
 
-export default function TestPage() {
+import { Suspense } from "react";
+
+function TestPageInner() {
   const q = useSearchParams();
   const initialMode = (q.get("mode") as Mode) || "prompted";
 
@@ -231,6 +232,7 @@ export default function TestPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <div className="mx-auto max-w-6xl px-4 py-8">
+        {/* ...existing code... */}
         <Toolbar
           mode={mode}
           setMode={(m) => { setMode(m); resetAll(); }}
@@ -306,5 +308,13 @@ export default function TestPage() {
         <footer className="mt-10 text-center text-xs text-slate-500">Built with Next.js + Tailwind + TypeScript.</footer>
       </div>
     </main>
+  );
+}
+
+export default function TestPage() {
+  return (
+    <Suspense>
+      <TestPageInner />
+    </Suspense>
   );
 }
