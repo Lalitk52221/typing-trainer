@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Typing Trainer ",
-  description: "Practice 2/5/10/15 minute typing sessions with prompted & freestyle modes.",
+  description: "Practice 2/5/10/15 minute typing sessions with freestyle modes.",
 };
 
 export default function RootLayout({

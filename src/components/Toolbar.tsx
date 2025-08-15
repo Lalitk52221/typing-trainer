@@ -26,12 +26,11 @@ export function Toolbar(props: {
         <div className="flex items-center gap-3">
           <Link href="/" className="text-2xl font-bold tracking-tight">Typing Trainer <span className="ml-1 px-2 py-0.5 rounded-xl text-sm font-semibold" style={{ background: "var(--accent)", color: "#0b1220" }}>Pro</span></Link>
         </div>
-        <p className="text-slate-500 dark:text-slate-400 mt-1">Modes: Prompted / Words / Freestyle — with themes, audio feedback, and heatmap.</p>
+        <p className="text-slate-500 dark:text-slate-400 mt-1">Modes:Words / Freestyle — with themes, audio feedback, and heatmap.</p>
       </div>
 
       <div className="flex flex-wrap items-center gap-2">
         <select value={mode} onChange={(e) => setMode(e.target.value as Mode)} className="bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" aria-label="Select mode">
-          <option value="prompted">Prompted</option>
           <option value="words">Words</option>
           <option value="freestyle">Freestyle</option>
         </select>

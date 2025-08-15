@@ -4,37 +4,28 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 text-slate-100">
+  <main className="min-h-screen bg-gray-50 dark:bg-blue-950 text-slate-900 dark:text-slate-100">
       <div className="mx-auto max-w-5xl px-4 py-12">
         <header>
           <h1 className="text-4xl font-bold tracking-tight">Typing Trainer <span className="text-sky-400">Pro</span></h1>
           <p className="mt-2 text-slate-400 max-w-2xl">
-            Practice in <b>Prompted</b>, <b>Words</b>, or <b>Freestyle</b> mode. Choose difficulty, set a timer (2/5/10/15 min),
+            Practice in <b>Words</b>, or <b>Freestyle</b> mode. Choose difficulty, set a timer (2/5/10/15 min),
             toggle <b>sound feedback</b>, switch <b>themes</b>, and review a <b>per-key heatmap</b> after each session. Your best scores
             and preferences are saved locally.
           </p>
         </header>
 
         <section className="mt-8 grid gap-6 md:grid-cols-3">
-          <Card
-            title="Prompted"
-            body="Type the paragraph exactly as shown. Tracks accuracy and net WPM."
-            href="/test?mode=prompted"
-          />
-          <Card
-            title="Words Mode"
-            body="Type a rolling stream of words (Easy/Medium/Hard). Great for rhythm and speed."
-            href="/test?mode=words"
-          />
-          <Card
-            title="Freestyle"
-            body="Type anything you want. Perfect for eyes-off drills and raw speed."
-            href="/test?mode=freestyle"
-          />
-        </section>
-
-        <section className="mt-10">
-          <h2 className="text-xl font-semibold">What makes it different?</h2>
+            <Card
+              title="Words Mode"
+              body="Type a rolling stream of words (Easy/Medium/Hard). Great for rhythm and speed."
+              href="/test?mode=words"
+            />
+            <Card
+              title="Freestyle"
+              body="Type anything you want. Perfect for eyes-off drills and raw speed."
+              href="/test?mode=freestyle"
+            />
           <ul className="mt-3 list-disc pl-6 text-slate-300 space-y-1">
             <li>Clean UI with live stats, pause/resume, and reset shortcuts.</li>
             <li>Sound feedback: key click + error beep with a mute toggle.</li>
